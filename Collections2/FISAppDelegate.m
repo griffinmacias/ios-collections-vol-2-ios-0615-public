@@ -16,7 +16,58 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    return YES;
+    
+    NSDictionary *schools = @{
+                @"flatiron school bk": @{
+                        @"location": @"NYC"
+                        },
+                @"flatiron school": @{
+                        @"location": @"NYC"
+                        },
+                @"dev boot camp": @{
+                        @"location": @"SF"
+                        },
+                @"dev boot camp chicago": @{
+                        @"location": @"Chicago"
+                        },
+                @"general assembly": @{
+                        @"location": @"NYC"
+                        },
+                @"Hack Reactor": @{
+                        @"location": @"SF"
+                        }
+              };
+    
+    NSMutableArray *cities = [NSMutableArray array];
+    
+    for (NSDictionary *school in schools) {
+        NSString *city = schools[school][@"location"];
+        
+        
+        [cities addObject:city];
+    }
+    
+    NSOrderedSet *removedDuplicates = [NSOrderedSet orderedSetWithArray:cities];
+ 
+
+ NSMutableDictionary *groupedSchoolsInCity = [[NSMutableDictionary alloc] init];
+    for (NSString *city in removedDuplicates) {
+        
+        NSMutableArray *allSchoolsInCity = [NSMutableArray array];
+        for (NSDictionary *school in schools) {
+            NSString *schoolCity = schools[school][@"location"];
+        
+            if ([schoolCity isEqualToString:city]) {
+                [allSchoolsInCity addObject:school];
+            }
+        }
+       
+        [groupedSchoolsInCity setValue:allSchoolsInCity forKey:city];
+            NSLog(@"%@", groupedSchoolsInCity);
+    }
+    
+    
+              return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

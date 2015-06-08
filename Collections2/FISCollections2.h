@@ -12,4 +12,21 @@
 
 //declare methods here
 
+-(BOOL)beginsWithC:(NSArray *)tools;
+
+-(NSArray *)containA:(NSArray *)array;
+
+-(NSString *)firstWa:(NSArray *)array;
+
+-(NSArray *)removeNonStrings:(NSArray *)array;
+
+-(NSArray *)countElements:(NSArray *)array;
+
+-(NSArray *)mergeDataWithKeys:(NSArray *)keys AndData:(NSArray *)data;
+
+-(NSArray *)findCool:(NSArray *)array;
+
+-(NSDictionary *)organizeSchools:(NSDictionary *)schools;
+
+
 @end
